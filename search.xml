@@ -106,6 +106,8 @@
 
 
 <p><img src="D:%5Chexo-blog%5Csource_posts%5CHexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%5C3.jpg" alt="3"></p>
+<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p>打开Next主题路径下的配置文件<code>_config.yml</code>修改下列代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># Canvas-nest</span><br><span class="line"></span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest</span><br><span class="line"># For more information: https:&#x2F;&#x2F;github.com&#x2F;hustcc&#x2F;canvas-nest.js</span><br><span class="line">canvas_nest:</span><br><span class="line">  enable: true</span><br><span class="line">  onmobile: true # Display on mobile or not</span><br><span class="line">  color: &quot;0,0,255&quot; # RGB values, use &#96;,&#96; to separate</span><br><span class="line">  opacity: 0.5 # The opacity of line: 0~1</span><br><span class="line">  zIndex: -1 # z-index property of the background</span><br><span class="line">  count: 99 # The number of lines</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>教程</category>
@@ -152,8 +154,8 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>博客</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
