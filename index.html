@@ -233,7 +233,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-10 21:59:16" itemprop="dateModified" datetime="2020-02-10T21:59:16+08:00">2020-02-10</time>
+                <time title="修改时间：2020-02-10 22:29:19" itemprop="dateModified" datetime="2020-02-10T22:29:19+08:00">2020-02-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -253,7 +253,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>800</span>
+              <span>853</span>
             </span>
 
         </div>
@@ -265,28 +265,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>#电信光猫TWEA-600AEM超级密码获取</p>
-<p>##登陆光猫</p>
-<p>电信给配的光猫型号是TWEA-600AEM，这个光猫只有一个千兆网口，一个百兆网口和一个USB口，一个电话插口，相比其他地区同时安装的光猫，性能不是太好。</p>
+          <h1 id="电信光猫TWEA-600AEM超级密码获取"><a href="#电信光猫TWEA-600AEM超级密码获取" class="headerlink" title="电信光猫TWEA-600AEM超级密码获取"></a>电信光猫TWEA-600AEM超级密码获取</h1><h2 id="登录光猫"><a href="#登录光猫" class="headerlink" title="登录光猫"></a>登录光猫</h2><p>电信给配的光猫型号是TWEA-600AEM，这个光猫只有一个千兆网口，一个百兆网口和一个USB口，一个电话插口，相比其他地区同时安装的光猫，性能不是太好。</p>
 <p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210214658.jpg" alt=""></p>
 <p>这个光猫自带无线2.4G WiFi功能，属于能用级别，最好购买个好点的路由器。</p>
 <p>WIFI名称默认是ChinaNet-XXXX（不同的光猫只有XXXX不同）。默认WiFi名称和WiFi密码都写在标签上，标签上还有光猫默认管理地址、默认终端配置账号和默认终端配置密码等各种信息。这里的默认终端配置账号其实就是普通管理用户，只能进入管理界面查看部分信息，修改光猫局域网地址，修改WiFi名称、密码等。</p>
-<p>查看光猫底部标签，获得设置IP地址和一般用户登录密码。<br>访问<a href="http://192.168.1.1/，使用标签上的useradmin用户名登录。" target="_blank" rel="noopener">http://192.168.1.1/，使用标签上的useradmin用户名登录。</a></p>
-<p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210214733.jpg" alt=""></p>
-<p>登陆后的界面如下：</p>
-<p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210214747.jpg" alt=""></p>
-<p>##超级密码获取</p>
-<p>登陆后不退出，打开<a href="http://192.168.1.1/backupsettings.conf即可下载文件。访问http://192.168.1.1/dumpcfg.conf" target="_blank" rel="noopener">http://192.168.1.1/backupsettings.conf即可下载文件。访问http://192.168.1.1/dumpcfg.conf</a> 也可以，但是文件内容不如前者清晰。</p>
-<p>下载后用文本编辑软件打开，自带的记事本等都可以，为了好展示，我用的是Sublime Text 3。</p>
-<p>网上的教程是：Ctrl+F查找telecomadmin ，一般密码是telecomadmin+8位数字。回到光猫管理页面，退出普通用户，然后用这个用户名telecomadmin，密码telecomadmin+8位数字登录光猫。如下图：</p>
-<p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210214833.jpg" alt=""></p>
-<p>但是文件里并没有，仔细查看文件，发现了password关键字，用来登陆，成功了！</p>
-<p>编号1处是超级密码，用户名是useradmin或者telecomadmin都可以登陆。</p>
-<p>编号2处光猫普通管理员密码。都是明文，可以直接登陆。</p>
-<p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210214816.jpg" alt=""></p>
-<p>登陆后的界面如下，可以查看更多高级信息，非专业人士请勿修改，以免不能上网。</p>
-<p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210214849.jpg" alt=""></p>
-
+<p>查看光猫底部标签，获得光猫管理IP地址和管理员用户登录密码。地址一般为<a href="http://192.168.1.1/" target="_blank" rel="noopener">http://192.168.1.1/</a>  ，使用标签上的用户名和密码登录。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/01/%E7%94%B5%E4%BF%A1%E5%85%89%E7%8C%ABTWEA-600AEM%E8%B6%85%E7%BA%A7%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
