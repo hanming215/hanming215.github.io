@@ -141,25 +141,6 @@
 <p><img src="D:%5Chexo-blog%5Csource_posts%5CHexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%5C3.jpg" alt="3"></p>
 <h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p>打开Next主题路径下的配置文件<code>_config.yml</code>修改下列代码</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># Canvas-nest</span><br><span class="line"></span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest</span><br><span class="line"># For more information: https:&#x2F;&#x2F;github.com&#x2F;hustcc&#x2F;canvas-nest.js</span><br><span class="line">canvas_nest:</span><br><span class="line">  enable: true</span><br><span class="line">  onmobile: true # Display on mobile or not</span><br><span class="line">  color: &quot;0,0,255&quot; # RGB values, use &#96;,&#96; to separate</span><br><span class="line">  opacity: 0.5 # The opacity of line: 0~1</span><br><span class="line">  zIndex: -1 # z-index property of the background</span><br><span class="line">  count: 99 # The number of lines</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>安装hexo</title>
-    <url>/2019/07/14/%E5%AE%89%E8%A3%85hexo/</url>
-    <content><![CDATA[<h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><ol>
-<li>安装 Node</li>
-<li>安装 Git</li>
-<li>注册github</li>
-<li>安装 Hexo</li>
-</ol>
-<a id="more"></a>
 
 <ol>
 <li><p><strong>注</strong>：</p>
@@ -167,10 +148,10 @@
 <li><p>hexo相关命令均在<strong>站点目录</strong>下，用<strong>Git Bash</strong>运行。</p>
 </li>
 <li><p>站点配置文件：站点目录下的<code>_config.yml</code>。</p>
-<p> 路径为<code>&lt;folder&gt;\_config.yml</code></p>
+<p>路径为<code>&lt;folder&gt;\_config.yml</code></p>
 </li>
 <li><p>主题配置文件：站点目录下的<code>themes</code>文件夹下的，主题文件夹下的<code>_config.yml</code>。</p>
-<p> 路径为<code>&lt;folder&gt;\themes\&lt;主题文件夹&gt;\_config.yml</code></p>
+<p>路径为<code>&lt;folder&gt;\themes\&lt;主题文件夹&gt;\_config.yml</code></p>
 </li>
 </ul>
 </li>
@@ -185,10 +166,10 @@
 ]]></content>
       <categories>
         <category>教程</category>
+        <category>hexo</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>hexo</tag>
+        <tag>教程</tag>
       </tags>
   </entry>
 </search>
