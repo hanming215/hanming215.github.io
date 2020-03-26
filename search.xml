@@ -125,20 +125,17 @@
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <p>出现下图表示安装成功</p>
-
-
-<p><img src="D:%5Chexo-blog%5Csource_posts%5CHexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%5C1.jpg" alt="1"></p>
+<p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200326231357.jpg" alt=""></p>
 <h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="初始化-hexo"><a href="#初始化-hexo" class="headerlink" title="初始化 hexo"></a>初始化 hexo</h2><ul>
 <li><p>新建一个空白文件夹（下文提到的“项目根目录”是指你新建的文件夹的位置）用于存放 hexo 资源。在空白文件夹里面打开 Git Bash ，输入下列命令行进行初始化，初始化成功后会在文件夹生成如下图的文件。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
+
+
 </li>
 </ul>
-<p><img src="Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/2.jpg" alt=""></p>
-
-
-
-<p><img src="D:%5Chexo-blog%5Csource_posts%5CHexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%5C3.jpg" alt="3"></p>
+<p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200326231433.jpg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200326231458.jpg" alt=""></p>
 <h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p>打开Next主题路径下的配置文件<code>_config.yml</code>修改下列代码</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># Canvas-nest</span><br><span class="line"></span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest</span><br><span class="line"># For more information: https:&#x2F;&#x2F;github.com&#x2F;hustcc&#x2F;canvas-nest.js</span><br><span class="line">canvas_nest:</span><br><span class="line">  enable: true</span><br><span class="line">  onmobile: true # Display on mobile or not</span><br><span class="line">  color: &quot;0,0,255&quot; # RGB values, use &#96;,&#96; to separate</span><br><span class="line">  opacity: 0.5 # The opacity of line: 0~1</span><br><span class="line">  zIndex: -1 # z-index property of the background</span><br><span class="line">  count: 99 # The number of lines</span><br></pre></td></tr></table></figure>
 
