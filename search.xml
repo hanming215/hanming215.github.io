@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>NULL、0、nullptr的区别</title>
+    <url>/2020/03/27/NULL%E3%80%810%E3%80%81nullptr%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h1 id="NULL、0、nullptr的区别"><a href="#NULL、0、nullptr的区别" class="headerlink" title="NULL、0、nullptr的区别"></a>NULL、0、nullptr的区别</h1><p><strong>非原创，觉得作者写的很挺好，转自 <a href="https://www.cnblogs.com/nothx/p/8523191.html" target="_blank" rel="noopener">https://www.cnblogs.com/nothx/p/8523191.html</a></strong></p>
+<p>某些时候，我们需要将指针赋值为空指针，以防止野指针。</p>
+<p>有人喜欢使用NULL作为空指针常量使用，例如：int* p = NULL; 。</p>
+<p>也有人直接使用0值作为空指针常量，例如：int* p = 0; 。</p>
+<p>前者可能觉得：NULL作为空指针常量，名字很形象，可读性较强。</p>
+<p>后者可能觉得：NULL并不是C/C++语言的关键字，而是一个在标准库头文件&lt;stddef.h&gt;中定义的宏，因此要使用NULL，可能需要直接或简介地包含&lt;stddef.h&gt;头文件，比较麻烦。</p>
+<a id="more"></a>
+
+<h2 id="问题一：NULL与常数0值有何区别？"><a href="#问题一：NULL与常数0值有何区别？" class="headerlink" title="问题一：NULL与常数0值有何区别？"></a>问题一：NULL与常数0值有何区别？</h2><p>要弄清楚这个问题，我们采用问与答的形式来描述。</p>
+<p><strong>问：</strong>NULL到底是什么？</p>
+<p><strong>答：</strong>NULL是一个宏。</p>
+<p><strong>问：</strong>它的值是多少？</p>
+<p><strong>答：</strong>C/C++标准规定：它的值是一个空指针常量（null pointer constant），由实现定义。#1,#2</p>
+<p><strong>问：</strong>什么样的值才能称之为空指针常量？</p>
+<p><strong>答：</strong>C语言中常数0和(void*)0都是空指针常量；C++中（暂且忽略C++11）常数0是，而(void*)0 不是。#3,#4</p>
+<p><strong>问：</strong>NULL宏是在哪里定义的？</p>
+<p><strong>答：</strong>通常是在C标准库的&lt;stddef.h&gt;头文件中，不过别的头文件中可能也有定义。</p>
+<p><strong>问：</strong>一般编译器的&lt;stddef.h&gt;头文件中NULL宏是如何定义的？</p>
+<p><strong>答：</strong>以gcc或clang编译器为例，NULL的定义大致如下（稍有简化）：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined(__cplusplus)</span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> NULL 0    <span class="comment">// C++中使用0作为NULL的值</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> NULL ((void *)0)    <span class="comment">// C中使用((void *)0)作为NULL的值</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<p>问：为什么C中(void*)0是空指针常量，而C++中不是？</p>
+<p>答：因为C语言中任何类型的指针都可以（隐式地）转换为 void* 型，反过来也行，而C++中 void* 型不能隐式地转换为别的类型指针（例如：int* p = (void*) 0;使用C++编译器编译会报错）。#5,#6</p>
+<p>问：既然C/C++标准中，常数0都可作为空指针常量，为什么不统一使用0？</p>
+<p>答：个人觉得由于(void*)0更能体现指针的意义，而常数0更多的时候是用作整数。因此，C语言中NULL定义选择了(void*)0。（仅供参考）</p>
+<h2 id="问题二：C-11中为什么要引入nullptr？"><a href="#问题二：C-11中为什么要引入nullptr？" class="headerlink" title="问题二：C++11中为什么要引入nullptr？"></a>问题二：C++11中为什么要引入nullptr？</h2><p>考虑着这样一个函数重载的情形：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stddef.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span>)</span> </span>&#123;&#125;     <span class="comment">// #1</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">char</span>*)</span> </span>&#123;&#125;   <span class="comment">// #2</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    foo(<span class="literal">NULL</span>); <span class="comment">// 调用#1还是#2？</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从字面上来讲，NULL是个空指针常量，我们可能会觉得：既然是个指针，那么应该调用#2。但事实上调用的却是#1，因为C++中NULL扩展为常数0，它是int型。</p>
+<p>根本原因就是：常数0既是整数常量，也是空指针常量。</p>
+<p>为了解决这种二义性，C++11标准引入了关键字nullptr，它作为一种空指针常量。#7</p>
+<p>例如：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span>)</span> </span>&#123;&#125;     <span class="comment">// #1</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">char</span>*)</span> </span>&#123;&#125;   <span class="comment">// #2</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    foo(<span class="literal">nullptr</span>); <span class="comment">// 它会毫无异议地调用#2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><strong>附注：</strong></p>
+<p>[#1] C99: 7.17-p3:</p>
+<p>  The macros are NULL which expands to an implementation-defined null pointer constant; and …</p>
+<p>[#2] C++03: 18.1-p4:</p>
+<p>  The macro NULL is an implementation-defined C + + null pointer constant in this International Standard(4.10).</p>
+<p>[#3] C99: 6.3.2.3-p3:</p>
+<p>  An integer constant expression with the value 0, or such an expression cast to type void *, is called a null pointer constant.</p>
+<p>[#4] C++03: 4.10-p1:</p>
+<p>  A null pointer constant is an integral constant expression (5.19) rvalue of integer type that evaluates to zero.</p>
+<p>[#5] C99: 6.3.2.3-p1:</p>
+<p>  A pointer to void may be converted to or from a pointer to any incomplete or object type. A pointer to any incomplete or object type may be converted to a pointer to void and back again; the result shall compare equal to the original pointer.</p>
+<p>[#6] C++03: 4.10-p2:</p>
+<p>  An rvalue of type “pointer to cv T,” where T is an object type, can be converted to an rvalue of type “pointer to cv void.”</p>
+<p>[#7] C++11: 4.10-p1:</p>
+<p>  A null pointer constant is an integral constant expression (5.19) prvalue of integer type that evaluates to zero or a prvalue of type std::nullptr_t.</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>C</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>电信光猫TWEA-600AEM超级密码获取</title>
     <url>/2020/02/01/%E7%94%B5%E4%BF%A1%E5%85%89%E7%8C%ABTWEA-600AEM%E8%B6%85%E7%BA%A7%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96/</url>
     <content><![CDATA[<h1 id="电信光猫TWEA-600AEM超级密码获取"><a href="#电信光猫TWEA-600AEM超级密码获取" class="headerlink" title="电信光猫TWEA-600AEM超级密码获取"></a>电信光猫TWEA-600AEM超级密码获取</h1><h2 id="登录光猫"><a href="#登录光猫" class="headerlink" title="登录光猫"></a>登录光猫</h2><p>电信给配的光猫型号是TWEA-600AEM，这个光猫只有一个千兆网口，一个百兆网口和一个USB口，一个电话插口，相比其他地区同时安装的光猫，性能不是太好。</p>
