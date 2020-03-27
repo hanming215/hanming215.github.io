@@ -71,7 +71,7 @@
     <url>/posts/ea8813.html</url>
     <content><![CDATA[<h1 id="电信光猫TWEA-600AEM超级密码获取"><a href="#电信光猫TWEA-600AEM超级密码获取" class="headerlink" title="电信光猫TWEA-600AEM超级密码获取"></a>电信光猫TWEA-600AEM超级密码获取</h1><h2 id="登录光猫"><a href="#登录光猫" class="headerlink" title="登录光猫"></a>登录光猫</h2><p>电信给配的光猫型号是TWEA-600AEM，这个光猫只有一个千兆网口，一个百兆网口和一个USB口，一个电话插口，相比其他地区同时安装的光猫，性能不是太好。</p>
 <p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210214658.jpg" alt=""></p>
-<p>这个光猫自带无线2.4G WiFi功能，属于能用级别，最好购买个好点的路由器。<img src="/images/twea600aem.jpg" alt="test"></p>
+<p>这个光猫自带无线2.4G WiFi功能，属于能用级别，最好购买个好点的路由器。</p>
 <p>WIFI名称默认是ChinaNet-XXXX（不同的光猫只有XXXX不同）。默认WiFi名称和WiFi密码都写在标签上，标签上还有光猫默认管理地址、默认终端配置账号和默认终端配置密码等各种信息。这里的默认终端配置账号其实就是普通管理用户，只能进入管理界面查看部分信息，修改光猫局域网地址，修改WiFi名称、密码等。</p>
 <a id="more"></a>
 
