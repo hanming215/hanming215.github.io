@@ -20,27 +20,22 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Ubuntu 下基于Snort的入侵检测系统的搭建Snort概览Snort IDS（入侵检测系统）是一个强大的网络入侵检测系统。它具有实时数据流量分析和记录IP网络数据包的能力，能够进行协议分析，对网络数据包内容进行搜索、匹配。它能够检测各种不同的攻击方式，对攻击进行实时报警。此外，Snort是开源的入侵检测系统，并具有很好的扩展性和可移植性。 snort官网：https:&#x2F;&#x2F;www.snort.">
+  <meta name="description" content="NULL、0、nullptr的区别非原创，觉得作者写的很挺好，转自 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;nothx&#x2F;p&#x2F;8523191.html 某些时候，我们需要将指针赋值为空指针，以防止野指针。 有人喜欢使用NULL作为空指针常量使用，例如：int* p &#x3D; NULL; 。 也有人直接使用0值作为空指针常量，例如：int* p &#x3D; 0; 。 前者可能觉得：NULL作为空指针常量，名">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu 下基于Snort的入侵检测系统的搭建">
-<meta property="og:url" content="http://yoursite.com/2019/07/20/snort/index.html">
+<meta property="og:title" content="NULL、0、nullptr的区别">
+<meta property="og:url" content="http://yoursite.com/posts/7038e29a.html">
 <meta property="og:site_name" content="小铭同学">
-<meta property="og:description" content="Ubuntu 下基于Snort的入侵检测系统的搭建Snort概览Snort IDS（入侵检测系统）是一个强大的网络入侵检测系统。它具有实时数据流量分析和记录IP网络数据包的能力，能够进行协议分析，对网络数据包内容进行搜索、匹配。它能够检测各种不同的攻击方式，对攻击进行实时报警。此外，Snort是开源的入侵检测系统，并具有很好的扩展性和可移植性。 snort官网：https:&#x2F;&#x2F;www.snort.">
+<meta property="og:description" content="NULL、0、nullptr的区别非原创，觉得作者写的很挺好，转自 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;nothx&#x2F;p&#x2F;8523191.html 某些时候，我们需要将指针赋值为空指针，以防止野指针。 有人喜欢使用NULL作为空指针常量使用，例如：int* p &#x3D; NULL; 。 也有人直接使用0值作为空指针常量，例如：int* p &#x3D; 0; 。 前者可能觉得：NULL作为空指针常量，名">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20190719234643.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20190720001200.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20190720002416.png">
-<meta property="article:published_time" content="2019-07-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-27T08:27:59.910Z">
+<meta property="article:published_time" content="2020-03-27T08:00:00.000Z">
+<meta property="article:modified_time" content="2020-03-27T14:59:15.350Z">
 <meta property="article:author" content="小铭同学">
-<meta property="article:tag" content="教程">
-<meta property="article:tag" content="博客">
-<meta property="article:tag" content="snort">
-<meta property="article:tag" content="入侵检测">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20190719234643.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2019/07/20/snort/">
+<link rel="canonical" href="http://yoursite.com/posts/7038e29a.html">
 
 
 <script id="page-configurations">
@@ -53,7 +48,7 @@
   };
 </script>
 
-  <title>Ubuntu 下基于Snort的入侵检测系统的搭建 | 小铭同学</title>
+  <title>NULL、0、nullptr的区别 | 小铭同学</title>
   
 
 
@@ -197,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/20/snort/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/7038e29a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/hanming215/images/master/123.jpg">
@@ -210,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Ubuntu 下基于Snort的入侵检测系统的搭建
+          NULL、0、nullptr的区别
         </h1>
 
         <div class="post-meta">
@@ -219,27 +214,17 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-07-20 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-20T00:00:00+08:00">2019-07-20</time>
+              <time title="创建时间：2020-03-27 16:00:00 / 修改时间：22:59:15" itemprop="dateCreated datePublished" datetime="2020-03-27T16:00:00+08:00">2020-03-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-27 16:27:59" itemprop="dateModified" datetime="2020-03-27T16:27:59+08:00">2020-03-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%99%E7%A8%8B/snort/" itemprop="url" rel="index"><span itemprop="name">snort</span></a>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
                 </span>
             </span>
 
@@ -256,7 +241,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>2.4k</span>
             </span>
 
         </div>
@@ -268,33 +253,59 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Ubuntu-下基于Snort的入侵检测系统的搭建"><a href="#Ubuntu-下基于Snort的入侵检测系统的搭建" class="headerlink" title="Ubuntu 下基于Snort的入侵检测系统的搭建"></a>Ubuntu 下基于Snort的入侵检测系统的搭建</h1><h2 id="Snort概览"><a href="#Snort概览" class="headerlink" title="Snort概览"></a>Snort概览</h2><p>Snort IDS（入侵检测系统）是一个强大的网络入侵检测系统。它具有实时数据流量分析和记录IP网络数据包的能力，能够进行协议分析，对网络数据包内容进行搜索、匹配。它能够检测各种不同的攻击方式，对攻击进行实时报警。此外，Snort是开源的入侵检测系统，并具有很好的扩展性和可移植性。</p>
-<p>snort官网：<a href="https://www.snort.org/" target="_blank" rel="noopener">https://www.snort.org/</a></p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>snort官网有很多教程，官方使用手册，不同平台的安装教程，等其他由snort社区成员编写的很多教程，都非常的详细，是非常好的参考资料，不过都是英文的。</p>
+        <h1 id="NULL、0、nullptr的区别"><a href="#NULL、0、nullptr的区别" class="headerlink" title="NULL、0、nullptr的区别"></a>NULL、0、nullptr的区别</h1><p><strong>非原创，觉得作者写的很挺好，转自 <a href="https://www.cnblogs.com/nothx/p/8523191.html" target="_blank" rel="noopener">https://www.cnblogs.com/nothx/p/8523191.html</a></strong></p>
+<p>某些时候，我们需要将指针赋值为空指针，以防止野指针。</p>
+<p>有人喜欢使用NULL作为空指针常量使用，例如：int* p = NULL; 。</p>
+<p>也有人直接使用0值作为空指针常量，例如：int* p = 0; 。</p>
+<p>前者可能觉得：NULL作为空指针常量，名字很形象，可读性较强。</p>
+<p>后者可能觉得：NULL并不是C/C++语言的关键字，而是一个在标准库头文件&lt;stddef.h&gt;中定义的宏，因此要使用NULL，可能需要直接或简介地包含&lt;stddef.h&gt;头文件，比较麻烦。</p>
 <a id="more"></a>
-<p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20190719234643.jpg" alt=""></p>
-<p>详见：<a href="https://www.snort.org/documents" target="_blank" rel="noopener">https://www.snort.org/documents</a></p>
-<h2 id="安装案例"><a href="#安装案例" class="headerlink" title="安装案例"></a>安装案例</h2><p>Ubuntu 16.04下snort+barnyard2+base的入侵检测系统的搭建</p>
-<p><strong>安装教程</strong></p>
-<p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20190720001200.png" alt=""></p>
-<p>作者博客：<a href="http://sublimerobots.com/" target="_blank" rel="noopener">http://sublimerobots.com/</a></p>
-<p><strong>Snort</strong>：检测攻击</p>
+
+<h2 id="问题一：NULL与常数0值有何区别？"><a href="#问题一：NULL与常数0值有何区别？" class="headerlink" title="问题一：NULL与常数0值有何区别？"></a>问题一：NULL与常数0值有何区别？</h2><p>要弄清楚这个问题，我们采用问与答的形式来描述。</p>
+<p><strong>问：</strong>NULL到底是什么？</p>
+<p><strong>答：</strong>NULL是一个宏。</p>
+<p><strong>问：</strong>它的值是多少？</p>
+<p><strong>答：</strong>C/C++标准规定：它的值是一个空指针常量（null pointer constant），由实现定义。#1,#2</p>
+<p><strong>问：</strong>什么样的值才能称之为空指针常量？</p>
+<p><strong>答：</strong>C语言中常数0和(void*)0都是空指针常量；C++中（暂且忽略C++11）常数0是，而(void*)0 不是。#3,#4</p>
+<p><strong>问：</strong>NULL宏是在哪里定义的？</p>
+<p><strong>答：</strong>通常是在C标准库的&lt;stddef.h&gt;头文件中，不过别的头文件中可能也有定义。</p>
+<p><strong>问：</strong>一般编译器的&lt;stddef.h&gt;头文件中NULL宏是如何定义的？</p>
+<p><strong>答：</strong>以gcc或clang编译器为例，NULL的定义大致如下（稍有简化）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined(__cplusplus)</span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> NULL 0    <span class="comment">// C++中使用0作为NULL的值</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> NULL ((void *)0)    <span class="comment">// C中使用((void *)0)作为NULL的值</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<p>问：为什么C中(void*)0是空指针常量，而C++中不是？</p>
+<p>答：因为C语言中任何类型的指针都可以（隐式地）转换为 void* 型，反过来也行，而C++中 void* 型不能隐式地转换为别的类型指针（例如：int* p = (void*) 0;使用C++编译器编译会报错）。#5,#6</p>
+<p>问：既然C/C++标准中，常数0都可作为空指针常量，为什么不统一使用0？</p>
+<p>答：个人觉得由于(void*)0更能体现指针的意义，而常数0更多的时候是用作整数。因此，C语言中NULL定义选择了(void*)0。（仅供参考）</p>
+<h2 id="问题二：C-11中为什么要引入nullptr？"><a href="#问题二：C-11中为什么要引入nullptr？" class="headerlink" title="问题二：C++11中为什么要引入nullptr？"></a>问题二：C++11中为什么要引入nullptr？</h2><p>考虑着这样一个函数重载的情形：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stddef.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span>)</span> </span>&#123;&#125;     <span class="comment">// #1</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">char</span>*)</span> </span>&#123;&#125;   <span class="comment">// #2</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    foo(<span class="literal">NULL</span>); <span class="comment">// 调用#1还是#2？</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从字面上来讲，NULL是个空指针常量，我们可能会觉得：既然是个指针，那么应该调用#2。但事实上调用的却是#1，因为C++中NULL扩展为常数0，它是int型。</p>
+<p>根本原因就是：常数0既是整数常量，也是空指针常量。</p>
+<p>为了解决这种二义性，C++11标准引入了关键字nullptr，它作为一种空指针常量。#7</p>
+<p>例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span>)</span> </span>&#123;&#125;     <span class="comment">// #1</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">char</span>*)</span> </span>&#123;&#125;   <span class="comment">// #2</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    foo(<span class="literal">nullptr</span>); <span class="comment">// 它会毫无异议地调用#2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <blockquote>
-<p>Snort可以以人类可读模式将事件写入控制台或文本文件，但是比较耗费资源，效率不高，影响Snort性能。</p>
+<p><strong>附注：</strong></p>
+<p>[#1] C99: 7.17-p3:</p>
+<p>  The macros are NULL which expands to an implementation-defined null pointer constant; and …</p>
+<p>[#2] C++03: 18.1-p4:</p>
+<p>  The macro NULL is an implementation-defined C + + null pointer constant in this International Standard(4.10).</p>
+<p>[#3] C99: 6.3.2.3-p3:</p>
+<p>  An integer constant expression with the value 0, or such an expression cast to type void *, is called a null pointer constant.</p>
+<p>[#4] C++03: 4.10-p1:</p>
+<p>  A null pointer constant is an integral constant expression (5.19) rvalue of integer type that evaluates to zero.</p>
+<p>[#5] C99: 6.3.2.3-p1:</p>
+<p>  A pointer to void may be converted to or from a pointer to any incomplete or object type. A pointer to any incomplete or object type may be converted to a pointer to void and back again; the result shall compare equal to the original pointer.</p>
+<p>[#6] C++03: 4.10-p2:</p>
+<p>  An rvalue of type “pointer to cv T,” where T is an object type, can be converted to an rvalue of type “pointer to cv void.”</p>
+<p>[#7] C++11: 4.10-p1:</p>
+<p>  A null pointer constant is an integral constant expression (5.19) prvalue of integer type that evaluates to zero or a prvalue of type std::nullptr_t.</p>
 </blockquote>
-<p><strong>Barnyard2</strong>：将告警信息保存到数据库</p>
-<blockquote>
-<p>Barnyard2是一个用于Snort unified2二进制输出文件的开源解释器，<a href="https://github.com/firnsy/barnyard2" target="_blank" rel="noopener">https://github.com/firnsy/barnyard2</a></p>
-<p>将Snort事件存储在MySQL数据库中，这样我们就可以查看、搜索和查找事件。</p>
-<p>为了有效地将Snort事件放入MySQL数据库，减少Snort的负载。可以使用Barnyard2。配置Snort将事件以二进制形式输出到一个文件夹中，然后让Barnyard2异步读取这些事件并将它们添加到MySQL数据库中。</p>
-</blockquote>
-<p><strong>BASE</strong>：<strong>snort</strong>的<strong>Web GUI</strong>，以图形界面查看告警信息更加利于对攻击分析和统计</p>
-<blockquote>
-<p>BASE（Basic Analysis and Security Engine ）是一个用于Snort的简单web GUI。替代产品包括Snorby、Splunk、Sguil、AlienVault OSSIM和任何syslog服务器。</p>
-<p>之所以选择在本指南中使用BASE，是因为它设置简单，使用简单。BASE和Snorby都是废弃的项目，虽然Snorby提供了一个很好的Web-2.0接口，但由于它是用Ruby on Rails编写的，它所依赖的Ruby软件包不断升级，这导致了与其他所需Snorby软件包的兼容性问题，从而导致安装问题过多。</p>
-</blockquote>
-<p>界面如下：</p>
-<p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20190720002416.png" alt=""></p>
 
     </div>
 
@@ -304,10 +315,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%95%99%E7%A8%8B/" rel="tag"># 教程</a>
-              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"># 博客</a>
-              <a href="/tags/snort/" rel="tag"># snort</a>
-              <a href="/tags/%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/" rel="tag"># 入侵检测</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"># 编程</a>
+              <a href="/tags/C/" rel="tag"># C</a>
+              <a href="/tags/C/" rel="tag"># C++</a>
           </div>
 
         
@@ -316,13 +326,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/07/17/%E4%BD%BF%E7%94%A8PicGo%E5%92%8CGithub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/" rel="prev" title="使用PicGo和Github搭建个人图床">
-      <i class="fa fa-chevron-left"></i> 使用PicGo和Github搭建个人图床
+    <a href="/posts/ea8813.html" rel="prev" title="电信光猫TWEA-600AEM超级密码获取">
+      <i class="fa fa-chevron-left"></i> 电信光猫TWEA-600AEM超级密码获取
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/02/01/%E7%94%B5%E4%BF%A1%E5%85%89%E7%8C%ABTWEA-600AEM%E8%B6%85%E7%BA%A7%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96/" rel="next" title="电信光猫TWEA-600AEM超级密码获取">
-      电信光猫TWEA-600AEM超级密码获取 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -383,7 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-下基于Snort的入侵检测系统的搭建"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu 下基于Snort的入侵检测系统的搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Snort概览"><span class="nav-number">1.1.</span> <span class="nav-text">Snort概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">1.2.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装案例"><span class="nav-number">1.3.</span> <span class="nav-text">安装案例</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NULL、0、nullptr的区别"><span class="nav-number">1.</span> <span class="nav-text">NULL、0、nullptr的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题一：NULL与常数0值有何区别？"><span class="nav-number">1.1.</span> <span class="nav-text">问题一：NULL与常数0值有何区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题二：C-11中为什么要引入nullptr？"><span class="nav-number">1.2.</span> <span class="nav-text">问题二：C++11中为什么要引入nullptr？</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -406,7 +413,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -541,7 +548,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'gitalk_comments',
       owner       : 'hanming215',
       admin       : ['hanming215'],
-      id          : '3c8f6ee624f37042b6928b218e76fa74',
+      id          : '60afefe35f3912be76fa1f5bbcbd8139',
         language: 'zh-CN',
       distractionFreeMode: true
     });
