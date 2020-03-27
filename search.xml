@@ -171,9 +171,13 @@
 <p>当你上传的时候，你会发现你的仓库里也会增加新的图片了，图片链接自动保存在剪贴板，粘贴即可使用。</p>
 <p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20190717074533.png" alt=""></p>
 ]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
       <tags>
         <tag>教程</tag>
         <tag>博客</tag>
+        <tag>图床</tag>
       </tags>
   </entry>
   <entry>
@@ -233,6 +237,7 @@
       </categories>
       <tags>
         <tag>教程</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
