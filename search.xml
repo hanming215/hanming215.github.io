@@ -3,7 +3,7 @@
   <entry>
     <title>NULL、0、nullptr的区别</title>
     <url>/posts/7038e29a.html</url>
-    <content><![CDATA[<h1 id="NULL、0、nullptr的区别"><a href="#NULL、0、nullptr的区别" class="headerlink" title="NULL、0、nullptr的区别"></a>NULL、0、nullptr的区别</h1><p><strong>非原创，觉得作者写的很挺好，转自 <a href="https://www.cnblogs.com/nothx/p/8523191.html" target="_blank" rel="noopener">https://www.cnblogs.com/nothx/p/8523191.html</a></strong></p>
+    <content><![CDATA[<h1 id="NULL、0、nullptr的区别"><a href="#NULL、0、nullptr的区别" class="headerlink" title="NULL、0、nullptr的区别"></a>NULL、0、nullptr的区别</h1><p><strong>非原创，觉得作者写的挺好，转自 <a href="https://www.cnblogs.com/nothx/p/8523191.html" target="_blank" rel="noopener">https://www.cnblogs.com/nothx/p/8523191.html</a></strong></p>
 <p>某些时候，我们需要将指针赋值为空指针，以防止野指针。</p>
 <p>有人喜欢使用NULL作为空指针常量使用，例如：int* p = NULL; 。</p>
 <p>也有人直接使用0值作为空指针常量，例如：int* p = 0; 。</p>
@@ -199,8 +199,6 @@
 <h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="初始化-hexo"><a href="#初始化-hexo" class="headerlink" title="初始化 hexo"></a>初始化 hexo</h2><ul>
 <li><p>新建一个空白文件夹（下文提到的“项目根目录”是指你新建的文件夹的位置）用于存放 hexo 资源。在空白文件夹里面打开 Git Bash ，输入下列命令行进行初始化，初始化成功后会在文件夹生成如下图的文件。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
-
 
 </li>
 </ul>

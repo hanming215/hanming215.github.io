@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="NULL、0、nullptr的区别非原创，觉得作者写的很挺好，转自 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;nothx&#x2F;p&#x2F;8523191.html 某些时候，我们需要将指针赋值为空指针，以防止野指针。 有人喜欢使用NULL作为空指针常量使用，例如：int* p &#x3D; NULL; 。 也有人直接使用0值作为空指针常量，例如：int* p &#x3D; 0; 。 前者可能觉得：NULL作为空指针常量，名">
+  <meta name="description" content="NULL、0、nullptr的区别非原创，觉得作者写的挺好，转自 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;nothx&#x2F;p&#x2F;8523191.html 某些时候，我们需要将指针赋值为空指针，以防止野指针。 有人喜欢使用NULL作为空指针常量使用，例如：int* p &#x3D; NULL; 。 也有人直接使用0值作为空指针常量，例如：int* p &#x3D; 0; 。 前者可能觉得：NULL作为空指针常量，名字">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NULL、0、nullptr的区别">
 <meta property="og:url" content="http://yoursite.com/posts/7038e29a.html">
 <meta property="og:site_name" content="小铭同学">
-<meta property="og:description" content="NULL、0、nullptr的区别非原创，觉得作者写的很挺好，转自 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;nothx&#x2F;p&#x2F;8523191.html 某些时候，我们需要将指针赋值为空指针，以防止野指针。 有人喜欢使用NULL作为空指针常量使用，例如：int* p &#x3D; NULL; 。 也有人直接使用0值作为空指针常量，例如：int* p &#x3D; 0; 。 前者可能觉得：NULL作为空指针常量，名">
+<meta property="og:description" content="NULL、0、nullptr的区别非原创，觉得作者写的挺好，转自 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;nothx&#x2F;p&#x2F;8523191.html 某些时候，我们需要将指针赋值为空指针，以防止野指针。 有人喜欢使用NULL作为空指针常量使用，例如：int* p &#x3D; NULL; 。 也有人直接使用0值作为空指针常量，例如：int* p &#x3D; 0; 。 前者可能觉得：NULL作为空指针常量，名字">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-27T08:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-27T14:59:15.350Z">
+<meta property="article:modified_time" content="2020-03-28T00:54:07.729Z">
 <meta property="article:author" content="小铭同学">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="C">
@@ -214,10 +214,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-27 16:00:00 / 修改时间：22:59:15" itemprop="dateCreated datePublished" datetime="2020-03-27T16:00:00+08:00">2020-03-27</time>
+              <time title="创建时间：2020-03-27 16:00:00" itemprop="dateCreated datePublished" datetime="2020-03-27T16:00:00+08:00">2020-03-27</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-28 08:54:07" itemprop="dateModified" datetime="2020-03-28T08:54:07+08:00">2020-03-28</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -253,7 +259,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="NULL、0、nullptr的区别"><a href="#NULL、0、nullptr的区别" class="headerlink" title="NULL、0、nullptr的区别"></a>NULL、0、nullptr的区别</h1><p><strong>非原创，觉得作者写的很挺好，转自 <a href="https://www.cnblogs.com/nothx/p/8523191.html" target="_blank" rel="noopener">https://www.cnblogs.com/nothx/p/8523191.html</a></strong></p>
+        <h1 id="NULL、0、nullptr的区别"><a href="#NULL、0、nullptr的区别" class="headerlink" title="NULL、0、nullptr的区别"></a>NULL、0、nullptr的区别</h1><p><strong>非原创，觉得作者写的挺好，转自 <a href="https://www.cnblogs.com/nothx/p/8523191.html" target="_blank" rel="noopener">https://www.cnblogs.com/nothx/p/8523191.html</a></strong></p>
 <p>某些时候，我们需要将指针赋值为空指针，以防止野指针。</p>
 <p>有人喜欢使用NULL作为空指针常量使用，例如：int* p = NULL; 。</p>
 <p>也有人直接使用0值作为空指针常量，例如：int* p = 0; 。</p>
