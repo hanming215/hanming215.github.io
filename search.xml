@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>路由器进阶使用</title>
+    <url>/posts/525a23b3.html</url>
+    <content><![CDATA[<h1 id="虚拟服务器"><a href="#虚拟服务器" class="headerlink" title="虚拟服务器"></a>虚拟服务器</h1><p><strong>重大错误理解</strong></p>
+<p>路由器拨号后获得了<del>公网IP地址</del>，然后开启虚拟服务器，连接路由器，访问这个WAN口IP地址，成功访问到内网的服务。心想原来也没有那么南嘛，还有点高兴。连接结果外网并不能访问内网服务。</p>
+<p>在使用中发现上网设备的公网IP与路由器拨号得到的WAN口IP地址不一样，WAN口IP地址是100.64.*.*，开始到没觉得有什么。在设置DDNS（Dynamic Domain Name Server，动态域名服务）时才发现不能正常使用，然后才发现WAN口IP不是公网IP。通过查找资料才明白，我们自己的路由器或者电脑拨号连接到了电信运营商的“大路由器”上，而不是公网IP地址，所以不能通过外网访问内网的服务。</p>
+<p>通过IP查询网站 <a href="https://www.ip138.com/" target="_blank" rel="noopener">https://www.ip138.com/</a> ，查看WAN口IP地址，结果为运营商局域网IP地址。</p>
+<p><img src="/images/router/%E4%BF%9D%E7%95%99%E5%9C%B0%E5%9D%80.jpg" alt="保留地址"></p>
+<a id="more"></a>
+
+<p>借用网友的回答：</p>
+<blockquote>
+<p>实际上，你的网络是这个结构：<br>internet &lt;=&gt; <strong>运营商路由器</strong> &lt;=&gt; 你的路由器 &lt;=&gt; 你的电脑。<br>两层路由，你的路由器看到的 IP 是运营商分配给你的运营商局域网 IP，并非公网 IP。</p>
+</blockquote>
+<p>计算机网络知识没学好，被骗的好惨。参考资料：</p>
+<p><a href="https://blog.csdn.net/achejq/article/details/51943080" target="_blank" rel="noopener">https://blog.csdn.net/achejq/article/details/51943080</a></p>
+<p><a href="https://www.zhihu.com/question/20889036" target="_blank" rel="noopener">https://www.zhihu.com/question/20889036</a></p>
+<p><strong>以下为错误理解的教程</strong></p>
+<p>以前的文章修改后光猫为桥接后，路由器的WAN口IP地址是<del>公网IP地址</del>，而不是光猫分配的内网IP，就可以将自己内网的一些服务发布到公网上去，让连接互联网的用户直接可以访问内部网络的服务。这里使用的是TP<em>-</em>LINK的TL-WDR5620路由器中的虚拟服务器，瞎鼓捣一番。这个公网IP应该是不固定的，如果要进一步使用，应该向运营商申请。</p>
+<h2 id="开启本机服务"><a href="#开启本机服务" class="headerlink" title="开启本机服务"></a>开启本机服务</h2><p>这里以Hexo的本地服务为例，通过命令<code>hexo server</code>，快速开启一个内网服务。可以通过 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 访问，端口号为4000。</p>
+<h2 id="开启虚拟服务器"><a href="#开启虚拟服务器" class="headerlink" title="开启虚拟服务器"></a>开启虚拟服务器</h2><p>在路由器中的虚拟服务器功能添加一项内容。</p>
+<p>借用TP<em>-</em>LINK官网的图，各个参数的含义</p>
+<p><img src="/images/router/%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A.png" alt="参数"></p>
+<p>添加之后</p>
+<p><img src="/images/router/%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B7%BB%E5%8A%A0.jpg" alt="参数"></p>
+<p>最后关闭防火墙及杀毒软件，通过访问WAN口IP地址:端口号</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">100.64.*.*:4000</span><br></pre></td></tr></table></figure>
+
+<p>成功访问。</p>
+<h2 id="官网教程参考"><a href="#官网教程参考" class="headerlink" title="官网教程参考"></a>官网教程参考</h2><p>TP<em>-</em>LINK教程参考</p>
+<p>[TL-WDR5600千兆版] 映射服务器到外网</p>
+<p><a href="https://service.tp-link.com.cn/detail_article_3606.html" target="_blank" rel="noopener">https://service.tp-link.com.cn/detail_article_3606.html</a></p>
+<p>设置了虚拟服务器，外网无法访问服务器怎么办？</p>
+<p><a href="https://service.tp-link.com.cn/detail_Article_2578.html" target="_blank" rel="noopener">https://service.tp-link.com.cn/detail_Article_2578.html</a></p>
+<p>以后有时间接着更新……</p>
+]]></content>
+      <categories>
+        <category>路由器</category>
+      </categories>
+      <tags>
+        <tag>路由器</tag>
+        <tag>虚拟服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>NULL、0、nullptr的区别</title>
     <url>/posts/7038e29a.html</url>
     <content><![CDATA[<p><strong>非原创，觉得作者写的挺好，转自 <a href="https://www.cnblogs.com/nothx/p/8523191.html" target="_blank" rel="noopener">https://www.cnblogs.com/nothx/p/8523191.html</a></strong></p>
@@ -110,7 +154,7 @@
 <h2 id="路由器拨号"><a href="#路由器拨号" class="headerlink" title="路由器拨号"></a>路由器拨号</h2><p>然后需要修改路由器的上网方式为宽带拨号方式。以前使用的是斐讯K2，刷了老毛子固件，没有时间弄远程管理，以后有时间瞅瞅。现在用的是TP<em>-</em>LINK的TL-WDR5620路由器，以这个为例。</p>
 <p>填入前面获取的宽带账号和密码，点击连接即可。修改后再连接光猫的WIFI就不能上网了，但是可以进入光猫的管理界面，进行修改。</p>
 <p><img src="/images/aem/%E4%BF%AE%E6%94%B9%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F.jpg" alt="修改"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>利用超级密码还可以进行很多高级修改，大家可以进一步尝试，也请谨慎修改。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>利用超级密码还可以进行很多高级修改，大家可以进一步尝试，也请谨慎修改。修改桥接后，路由器的WAN IP是公网的IP，而不是光猫分配的内网IP，就可以将自己内网的一些服务发布到公网上去，让连接互联网的用户直接可以访问内部网络的服务。</p>
 ]]></content>
       <categories>
         <category>光猫</category>
