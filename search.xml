@@ -109,6 +109,7 @@
 <h3 id="路由器拨号"><a href="#路由器拨号" class="headerlink" title="路由器拨号"></a>路由器拨号</h3><p>然后需要修改路由器的上网方式为宽带拨号方式。以前使用的是斐讯K2，刷了老毛子固件，没有时间弄远程管理，以后有时间瞅瞅。现在用的是TP<em>-</em>LINK的TL-WDR5620路由器，以这个为例。</p>
 <p>填入前面获取的宽带账号和密码，点击连接即可。修改后再连接光猫的WIFI就不能上网了，但是可以进入光猫的管理界面，进行修改。</p>
 <p><img src="/images/aem/%E4%BF%AE%E6%94%B9%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F.jpg" alt="修改"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>利用超级密码还可以进行很多高级修改，大家可以进一步尝试，也请谨慎修改。</p>
 ]]></content>
       <categories>
         <category>光猫</category>
