@@ -3,7 +3,7 @@
   <entry>
     <title>NULL、0、nullptr的区别</title>
     <url>/posts/7038e29a.html</url>
-    <content><![CDATA[<h1 id="NULL、0、nullptr的区别"><a href="#NULL、0、nullptr的区别" class="headerlink" title="NULL、0、nullptr的区别"></a>NULL、0、nullptr的区别</h1><p><strong>非原创，觉得作者写的挺好，转自 <a href="https://www.cnblogs.com/nothx/p/8523191.html" target="_blank" rel="noopener">https://www.cnblogs.com/nothx/p/8523191.html</a></strong></p>
+    <content><![CDATA[<p><strong>非原创，觉得作者写的挺好，转自 <a href="https://www.cnblogs.com/nothx/p/8523191.html" target="_blank" rel="noopener">https://www.cnblogs.com/nothx/p/8523191.html</a></strong></p>
 <p>某些时候，我们需要将指针赋值为空指针，以防止野指针。</p>
 <p>有人喜欢使用NULL作为空指针常量使用，例如：int* p = NULL; 。</p>
 <p>也有人直接使用0值作为空指针常量，例如：int* p = 0; 。</p>
@@ -11,7 +11,7 @@
 <p>后者可能觉得：NULL并不是C/C++语言的关键字，而是一个在标准库头文件&lt;stddef.h&gt;中定义的宏，因此要使用NULL，可能需要直接或简介地包含&lt;stddef.h&gt;头文件，比较麻烦。</p>
 <a id="more"></a>
 
-<h2 id="问题一：NULL与常数0值有何区别？"><a href="#问题一：NULL与常数0值有何区别？" class="headerlink" title="问题一：NULL与常数0值有何区别？"></a>问题一：NULL与常数0值有何区别？</h2><p>要弄清楚这个问题，我们采用问与答的形式来描述。</p>
+<h1 id="问题一：NULL与常数0值有何区别？"><a href="#问题一：NULL与常数0值有何区别？" class="headerlink" title="问题一：NULL与常数0值有何区别？"></a>问题一：NULL与常数0值有何区别？</h1><p>要弄清楚这个问题，我们采用问与答的形式来描述。</p>
 <p><strong>问：</strong>NULL到底是什么？</p>
 <p><strong>答：</strong>NULL是一个宏。</p>
 <p><strong>问：</strong>它的值是多少？</p>
@@ -28,7 +28,7 @@
 <p>答：因为C语言中任何类型的指针都可以（隐式地）转换为 void* 型，反过来也行，而C++中 void* 型不能隐式地转换为别的类型指针（例如：int* p = (void*) 0;使用C++编译器编译会报错）。#5,#6</p>
 <p>问：既然C/C++标准中，常数0都可作为空指针常量，为什么不统一使用0？</p>
 <p>答：个人觉得由于(void*)0更能体现指针的意义，而常数0更多的时候是用作整数。因此，C语言中NULL定义选择了(void*)0。（仅供参考）</p>
-<h2 id="问题二：C-11中为什么要引入nullptr？"><a href="#问题二：C-11中为什么要引入nullptr？" class="headerlink" title="问题二：C++11中为什么要引入nullptr？"></a>问题二：C++11中为什么要引入nullptr？</h2><p>考虑着这样一个函数重载的情形：</p>
+<h1 id="问题二：C-11中为什么要引入nullptr？"><a href="#问题二：C-11中为什么要引入nullptr？" class="headerlink" title="问题二：C++11中为什么要引入nullptr？"></a>问题二：C++11中为什么要引入nullptr？</h1><p>考虑着这样一个函数重载的情形：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stddef.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span>)</span> </span>&#123;&#125;     <span class="comment">// #1</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">char</span>*)</span> </span>&#123;&#125;   <span class="comment">// #2</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    foo(<span class="literal">NULL</span>); <span class="comment">// 调用#1还是#2？</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>从字面上来讲，NULL是个空指针常量，我们可能会觉得：既然是个指针，那么应该调用#2。但事实上调用的却是#1，因为C++中NULL扩展为常数0，它是int型。</p>
@@ -69,9 +69,9 @@
   <entry>
     <title>电信光猫TWEA-600AEM超级密码获取及桥接</title>
     <url>/posts/ea8813.html</url>
-    <content><![CDATA[<h1 id="电信光猫TWEA-600AEM超级密码获取及桥接"><a href="#电信光猫TWEA-600AEM超级密码获取及桥接" class="headerlink" title="电信光猫TWEA-600AEM超级密码获取及桥接"></a>电信光猫TWEA-600AEM超级密码获取及桥接</h1><p>本身比较爱折腾这些东西，非专业人士，以下步骤为参考网上的资料和实践所得，供大家参考。</p>
+    <content><![CDATA[<p>本身比较爱折腾这些东西，非专业人士，以下步骤为参考网上的资料和实践所得，供大家参考。</p>
 <p>本文主要讲述光猫（TWEA-600AEM）超级密码的获取，用超级密码登录可以对光猫进行很多高级设置，<strong>非专业人士谨慎修改，最好懂一点计算机网络知识</strong>。依据网友的经验，可以直接打电话给客服，远程修改光猫的设置。</p>
-<h2 id="登录光猫"><a href="#登录光猫" class="headerlink" title="登录光猫"></a>登录光猫</h2><p>电信给配的光猫型号是TWEA-600AEM，这个光猫只有一个千兆网口，一个百兆网口和一个USB口，一个电话插口，相比其他地区同时安装的光猫，性能不是太好。</p>
+<h1 id="登录光猫"><a href="#登录光猫" class="headerlink" title="登录光猫"></a>登录光猫</h1><p>电信给配的光猫型号是TWEA-600AEM，这个光猫只有一个千兆网口，一个百兆网口和一个USB口，一个电话插口，相比其他地区同时安装的光猫，性能不是太好。</p>
 <p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210214658.jpg" alt=""></p>
 <p>这个光猫自带无线2.4G WiFi功能，属于能用级别，最好购买个好点的路由器，还可以桥接光猫，用路由器拨号，提升性能。</p>
 <a id="more"></a>
@@ -81,7 +81,7 @@
 <p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210214733.jpg" alt=""></p>
 <p>登录后的界面如下：</p>
 <p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210214747.jpg" alt=""></p>
-<h2 id="超级密码、宽带密码获取"><a href="#超级密码、宽带密码获取" class="headerlink" title="超级密码、宽带密码获取"></a>超级密码、宽带密码获取</h2><p>登录后不退出，打开<a href="http://192.168.1.1/backupsettings.conf" target="_blank" rel="noopener">http://192.168.1.1/backupsettings.conf</a> 即可下载文件。访问 <a href="http://192.168.1.1/dumpcfg.conf" target="_blank" rel="noopener">http://192.168.1.1/dumpcfg.conf</a>  也可以，但是文件内容不如前者清晰。</p>
+<h1 id="超级密码、宽带密码获取"><a href="#超级密码、宽带密码获取" class="headerlink" title="超级密码、宽带密码获取"></a>超级密码、宽带密码获取</h1><p>登录后不退出，打开<a href="http://192.168.1.1/backupsettings.conf" target="_blank" rel="noopener">http://192.168.1.1/backupsettings.conf</a> 即可下载文件。访问 <a href="http://192.168.1.1/dumpcfg.conf" target="_blank" rel="noopener">http://192.168.1.1/dumpcfg.conf</a>  也可以，但是文件内容不如前者清晰。</p>
 <p>下载后用文本编辑软件打开，自带的记事本等都可以，用Sublime Text 3或者Notepad++更方便。</p>
 <p>网上的教程是：Ctrl+F查找telecomadmin ，一般密码是telecomadmin+8位数字。回到光猫管理页面，退出普通用户，然后用这个用户名telecomadmin，密码telecomadmin+8位数字登录光猫。如下图：</p>
 <p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210214833.jpg" alt=""></p>
@@ -91,13 +91,13 @@
 <p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210214849.jpg" alt=""></p>
 <p><del>但是很多按钮是灰色的不能点击，貌似通过删除 <code>disabled=&quot;true&quot;</code>元素来使按钮生效。我没有用过，大家谨慎修改。</del></p>
 <p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20200210222523.jpg" alt=""></p>
-<h2 id="光猫桥接、路由器拨号"><a href="#光猫桥接、路由器拨号" class="headerlink" title="光猫桥接、路由器拨号"></a>光猫桥接、路由器拨号</h2><p>是否修改光猫为用路由器拨号取决于你自己所购买的路由器，以及你光猫设备的水平，最佳实践不能一概而论。请参考知乎提问：<strong>光猫上拨号和光猫上接路由器，在路由器上拨号，哪种方式好一点？</strong><a href="https://www.zhihu.com/question/310217412" target="_blank" rel="noopener">https://www.zhihu.com/question/310217412</a> 如果还想进一步折腾请看下面的步骤。</p>
-<h3 id="获取宽带密码"><a href="#获取宽带密码" class="headerlink" title="获取宽带密码"></a>获取宽带密码</h3><p>用路由器拨号需要知道宽带账号和密码，注意不是光猫管理页面中的宽带识别码。在获取超级密码的文件中继续查找，即可找到。如果你本身知道账号和密码则不用进行这一步，或者拨打客服电话核验身份信息，应该会告诉你。</p>
+<h1 id="光猫桥接、路由器拨号"><a href="#光猫桥接、路由器拨号" class="headerlink" title="光猫桥接、路由器拨号"></a>光猫桥接、路由器拨号</h1><p>是否修改光猫为用路由器拨号取决于你自己所购买的路由器，以及你光猫设备的水平，最佳实践不能一概而论。请参考知乎提问：<strong>光猫上拨号和光猫上接路由器，在路由器上拨号，哪种方式好一点？</strong><a href="https://www.zhihu.com/question/310217412" target="_blank" rel="noopener">https://www.zhihu.com/question/310217412</a> 如果还想进一步折腾请看下面的步骤。</p>
+<h2 id="获取宽带密码"><a href="#获取宽带密码" class="headerlink" title="获取宽带密码"></a>获取宽带密码</h2><p>用路由器拨号需要知道宽带账号和密码，注意不是光猫管理页面中的宽带识别码。在获取超级密码的文件中继续查找，即可找到。如果你本身知道账号和密码则不用进行这一步，或者拨打客服电话核验身份信息，应该会告诉你。</p>
 <p>在文件中查找<strong>INTERNET_R_VID</strong>（光猫的上网通道，后面会解释这个），即可看到<strong>Username</strong>和<strong>Password</strong>。</p>
 <p><img src="/images/aem/%E4%BA%92%E8%81%94%E7%BD%91%E9%80%9A%E9%81%93.jpg" alt="base64"></p>
 <p><strong>Username</strong>可以直接使用，<strong>Password</strong>是经过Base64编码后的结果，不知道或者不敢感兴趣的同学可以不用了解具体的原理。随便搜索一个Base64编解码网站即可解码成明文密码。例如：<a href="http://tool.chinaz.com/Tools/Base64.aspx" target="_blank" rel="noopener">http://tool.chinaz.com/Tools/Base64.aspx</a></p>
 <p><img src="/images/aem/base64.jpg" alt="base64"></p>
-<h3 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h3><p>用超级密码登录后，在状态总览中可以看到4个通道，可以看到具体的业务类型（作用），有上网、语音、电视等等。</p>
+<h2 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h2><p>用超级密码登录后，在状态总览中可以看到4个通道，可以看到具体的业务类型（作用），有上网、语音、电视等等。</p>
 <p><img src="/images/aem/4%E7%A7%8D%E9%80%9A%E9%81%93.jpg" alt="4种通道"></p>
 <p>4个通道作用的参考文章：</p>
 <p><a href="https://wenku.baidu.com/view/340791582cc58bd63086bd09.html" target="_blank" rel="noopener">https://wenku.baidu.com/view/340791582cc58bd63086bd09.html</a></p>
@@ -106,10 +106,10 @@
 <p><img src="/images/aem/%E8%B7%AF%E7%94%B1.jpg" alt="路由"></p>
 <p>下拉菜单将路由修改为桥接，然后点击保存即可</p>
 <p><img src="/images/aem/%E6%A1%A5%E6%8E%A5.jpg" alt="桥接"></p>
-<h3 id="路由器拨号"><a href="#路由器拨号" class="headerlink" title="路由器拨号"></a>路由器拨号</h3><p>然后需要修改路由器的上网方式为宽带拨号方式。以前使用的是斐讯K2，刷了老毛子固件，没有时间弄远程管理，以后有时间瞅瞅。现在用的是TP<em>-</em>LINK的TL-WDR5620路由器，以这个为例。</p>
+<h2 id="路由器拨号"><a href="#路由器拨号" class="headerlink" title="路由器拨号"></a>路由器拨号</h2><p>然后需要修改路由器的上网方式为宽带拨号方式。以前使用的是斐讯K2，刷了老毛子固件，没有时间弄远程管理，以后有时间瞅瞅。现在用的是TP<em>-</em>LINK的TL-WDR5620路由器，以这个为例。</p>
 <p>填入前面获取的宽带账号和密码，点击连接即可。修改后再连接光猫的WIFI就不能上网了，但是可以进入光猫的管理界面，进行修改。</p>
 <p><img src="/images/aem/%E4%BF%AE%E6%94%B9%E4%B8%8A%E7%BD%91%E6%96%B9%E5%BC%8F.jpg" alt="修改"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>利用超级密码还可以进行很多高级修改，大家可以进一步尝试，也请谨慎修改。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>利用超级密码还可以进行很多高级修改，大家可以进一步尝试，也请谨慎修改。</p>
 ]]></content>
       <categories>
         <category>光猫</category>
@@ -124,13 +124,13 @@
   <entry>
     <title>Ubuntu 下基于Snort的入侵检测系统的搭建</title>
     <url>/posts/5b50df35.html</url>
-    <content><![CDATA[<h1 id="Ubuntu-下基于Snort的入侵检测系统的搭建"><a href="#Ubuntu-下基于Snort的入侵检测系统的搭建" class="headerlink" title="Ubuntu 下基于Snort的入侵检测系统的搭建"></a>Ubuntu 下基于Snort的入侵检测系统的搭建</h1><h2 id="Snort概览"><a href="#Snort概览" class="headerlink" title="Snort概览"></a>Snort概览</h2><p>Snort IDS（入侵检测系统）是一个强大的网络入侵检测系统。它具有实时数据流量分析和记录IP网络数据包的能力，能够进行协议分析，对网络数据包内容进行搜索、匹配。它能够检测各种不同的攻击方式，对攻击进行实时报警。此外，Snort是开源的入侵检测系统，并具有很好的扩展性和可移植性。</p>
+    <content><![CDATA[<h1 id="Snort概览"><a href="#Snort概览" class="headerlink" title="Snort概览"></a>Snort概览</h1><p>Snort IDS（入侵检测系统）是一个强大的网络入侵检测系统。它具有实时数据流量分析和记录IP网络数据包的能力，能够进行协议分析，对网络数据包内容进行搜索、匹配。它能够检测各种不同的攻击方式，对攻击进行实时报警。此外，Snort是开源的入侵检测系统，并具有很好的扩展性和可移植性。</p>
 <p>snort官网：<a href="https://www.snort.org/" target="_blank" rel="noopener">https://www.snort.org/</a></p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>snort官网有很多教程，官方使用手册，不同平台的安装教程，等其他由snort社区成员编写的很多教程，都非常的详细，是非常好的参考资料，不过都是英文的。</p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>snort官网有很多教程，官方使用手册，不同平台的安装教程，等其他由snort社区成员编写的很多教程，都非常的详细，是非常好的参考资料，不过都是英文的。</p>
 <a id="more"></a>
 <p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20190719234643.jpg" alt=""></p>
 <p>详见：<a href="https://www.snort.org/documents" target="_blank" rel="noopener">https://www.snort.org/documents</a></p>
-<h2 id="安装案例"><a href="#安装案例" class="headerlink" title="安装案例"></a>安装案例</h2><p>Ubuntu 16.04下snort+barnyard2+base的入侵检测系统的搭建</p>
+<h1 id="安装案例"><a href="#安装案例" class="headerlink" title="安装案例"></a>安装案例</h1><p>Ubuntu 16.04下snort+barnyard2+base的入侵检测系统的搭建</p>
 <p><strong>安装教程</strong></p>
 <p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20190720001200.png" alt=""></p>
 <p>作者博客：<a href="http://sublimerobots.com/" target="_blank" rel="noopener">http://sublimerobots.com/</a></p>
@@ -165,7 +165,7 @@
   <entry>
     <title>使用PicGo和Github搭建个人图床</title>
     <url>/posts/212aed0c.html</url>
-    <content><![CDATA[<h1 id="使用PicGo和Github搭建个人图床"><a href="#使用PicGo和Github搭建个人图床" class="headerlink" title="使用PicGo和Github搭建个人图床"></a>使用PicGo和Github搭建个人图床</h1><h2 id="Github设置"><a href="#Github设置" class="headerlink" title="Github设置"></a>Github设置</h2><ol>
+    <content><![CDATA[<h1 id="Github设置"><a href="#Github设置" class="headerlink" title="Github设置"></a>Github设置</h1><ol>
 <li><p>注册github账号，新建一个保存图片的仓库</p>
 </li>
 <li><p>生成一个token用于PicGo操作你的仓库</p>
@@ -180,7 +180,7 @@
 
 <p><img src="https://raw.githubusercontent.com/hanming215/ImageRepo/master/blog/20190717072411.png" alt=""></p>
 <p>​    <strong>注意：</strong>这个token生成后只会显示一次！你要把这个token复制一下存到其他地方以备以后要用。</p>
-<h2 id="配置PicGo"><a href="#配置PicGo" class="headerlink" title="配置PicGo"></a>配置PicGo</h2><ol>
+<h1 id="配置PicGo"><a href="#配置PicGo" class="headerlink" title="配置PicGo"></a>配置PicGo</h1><ol>
 <li><p>下载安装对应版本的PicGo</p>
 <p>下载地址：<a href="https://github.com/Molunerfinn/PicGo/releases" target="_blank" rel="noopener">https://github.com/Molunerfinn/PicGo/releases</a></p>
 </li>
