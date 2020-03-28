@@ -4,7 +4,7 @@
     <title>路由器进阶使用</title>
     <url>/posts/525a23b3.html</url>
     <content><![CDATA[<h1 id="虚拟服务器"><a href="#虚拟服务器" class="headerlink" title="虚拟服务器"></a>虚拟服务器</h1><p><strong>重大错误理解</strong></p>
-<p>路由器拨号后获得了<del>公网IP地址</del>，然后开启虚拟服务器，连接路由器，访问这个WAN口IP地址，成功访问到内网的服务。心想原来也没有那么南嘛，还有点高兴。结果连接外网并不能访问内网服务。</p>
+<p>原本以为，路由器拨号后获得了<del>公网IP地址</del>，然后开启虚拟服务器，连接路由器，访问这个WAN口IP地址，成功访问到内网的服务。心想原来也没有那么南嘛，还有点高兴。结果连接外网并不能访问内网服务。</p>
 <p>在使用中发现上网设备的公网IP与路由器拨号得到的WAN口IP地址不一样，WAN口IP地址是100.64.*.*，开始到没觉得有什么。在设置DDNS（Dynamic Domain Name Server，动态域名服务）时才发现不能正常使用，然后才发现WAN口IP不是公网IP。通过查找资料才明白，我们自己的路由器或者电脑拨号连接到了电信运营商的“大路由器”上，而不是公网IP地址，所以不能通过外网访问内网的服务。</p>
 <p>通过IP查询网站 <a href="https://www.ip138.com/" target="_blank" rel="noopener">https://www.ip138.com/</a> ，查看WAN口IP地址，结果为运营商局域网IP地址。</p>
 <p><img src="/images/router/%E4%BF%9D%E7%95%99%E5%9C%B0%E5%9D%80.jpg" alt="保留地址"></p>
