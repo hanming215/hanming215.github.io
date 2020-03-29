@@ -201,7 +201,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/525a23b3.html" class="post-title-link" itemprop="url">路由器进阶使用</a>
+            <a href="/posts/525a23b3.html" class="post-title-link" itemprop="url">路由器进阶使用之虚拟服务器(端口映射)</a>
         </h2>
 
         <div class="post-meta">
@@ -210,10 +210,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-28 00:00:00 / 修改时间：23:02:27" itemprop="dateCreated datePublished" datetime="2020-03-28T00:00:00+08:00">2020-03-28</time>
+              <time title="创建时间：2020-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-28T00:00:00+08:00">2020-03-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-29 11:41:41" itemprop="dateModified" datetime="2020-03-29T11:41:41+08:00">2020-03-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -230,7 +236,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.6k</span>
             </span>
 
         </div>
@@ -242,9 +248,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="虚拟服务器"><a href="#虚拟服务器" class="headerlink" title="虚拟服务器"></a>虚拟服务器</h1><p><strong>重大错误理解</strong></p>
-<p>原本以为，路由器拨号后获得了<del>公网IP地址</del>，然后开启虚拟服务器，连接路由器，访问这个WAN口IP地址，成功访问到内网的服务。心想原来也没有那么南嘛，还有点高兴。结果连接外网并不能访问内网服务。</p>
-<p>在使用中发现上网设备的公网IP与路由器拨号得到的WAN口IP地址不一样，WAN口IP地址是100.64.*.*，开始到没觉得有什么。在设置DDNS（Dynamic Domain Name Server，动态域名服务）时才发现不能正常使用，然后才发现WAN口IP不是公网IP。通过查找资料才明白，我们自己的路由器或者电脑拨号连接到了电信运营商的“大路由器”上，而不是公网IP地址，所以不能通过外网访问内网的服务。</p>
+          <h1 id="0x01-写在开头"><a href="#0x01-写在开头" class="headerlink" title="0x01 写在开头"></a>0x01 写在开头</h1><p>本教程是开启路由器的端口映射，TP<em>-</em>LINK路由器中称此为虚拟服务器，所以本文以“虚拟服务器”为主。但是本教程错误的，准确来说是不完整的。</p>
+<h2 id="错误理解"><a href="#错误理解" class="headerlink" title="错误理解"></a>错误理解</h2><p>原本以为，路由器拨号后获得了公网IP地址，然后开启路由器的虚拟服务器，访问路由器WAN口IP地址，就可以成功访问到内网的服务。心想原来也没有那么南嘛，还有点高兴。结果发现我能通过WAN口IP地址访问内网，是因为我连自己的路由器。猜测原理是访问WAN口IP，数据包都没有被转发出去，直接被路由器转发回来了。综上，现在路由器拨号获取的不是公网IP，并不能访问内网服务。失望是不可能失望的，只能安慰一下自己又学到了知识的样子 (┬_┬) 。</p>
+<h2 id="错误发现过程"><a href="#错误发现过程" class="headerlink" title="错误发现过程"></a>错误发现过程</h2><p>在使用中发现上网设备的公网IP与路由器拨号得到的WAN口IP地址不一样，WAN口IP地址是100.64.*.*，开始到没觉得有什么，不知道这是一个保留地址。在设置DDNS（Dynamic Domain Name Server，动态域名服务）时才发现不能凭借域名访问内网，然后才发现WAN口IP不是公网IP。通过查找资料才明白，我们自己的路由器或者电脑拨号连接到了电信运营商的“大路由器”上，而不是公网IP地址，所以不能通过外网访问内网的服务。</p>
+<blockquote>
+<p>耍了个小聪明，瞎尝试了一下。既然是我家是电信的网，连接邻居家的电信宽带和电信流量上网都试了一下，都不能访问，看来是失败了。要使用公网IP的话，应该要向运营商申请，以后有时间，尝试一下。</p>
+</blockquote>
 <p>通过IP查询网站 <a href="https://www.ip138.com/" target="_blank" rel="noopener">https://www.ip138.com/</a> ，查看WAN口IP地址，结果为运营商局域网IP地址。</p>
 <p><img src="/images/router/%E4%BF%9D%E7%95%99%E5%9C%B0%E5%9D%80.jpg" alt="保留地址"></p>
           <!--noindex-->
@@ -826,7 +835,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

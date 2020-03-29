@@ -20,21 +20,22 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="虚拟服务器重大错误理解 原本以为，路由器拨号后获得了公网IP地址，然后开启虚拟服务器，连接路由器，访问这个WAN口IP地址，成功访问到内网的服务。心想原来也没有那么南嘛，还有点高兴。结果连接外网并不能访问内网服务。 在使用中发现上网设备的公网IP与路由器拨号得到的WAN口IP地址不一样，WAN口IP地址是100.64.*.*，开始到没觉得有什么。在设置DDNS（Dynamic Domain Nam">
+  <meta name="description" content="0x01 写在开头本教程是开启路由器的端口映射，TP-LINK路由器中称此为虚拟服务器，所以本文以“虚拟服务器”为主。但是本教程错误的，准确来说是不完整的。 错误理解原本以为，路由器拨号后获得了公网IP地址，然后开启路由器的虚拟服务器，访问路由器WAN口IP地址，就可以成功访问到内网的服务。心想原来也没有那么南嘛，还有点高兴。结果发现我能通过WAN口IP地址访问内网，是因为我连自己的路由器。猜测原">
 <meta property="og:type" content="article">
-<meta property="og:title" content="路由器进阶使用">
+<meta property="og:title" content="路由器进阶使用之虚拟服务器(端口映射)">
 <meta property="og:url" content="http://yoursite.com/posts/525a23b3.html">
 <meta property="og:site_name" content="小铭同学">
-<meta property="og:description" content="虚拟服务器重大错误理解 原本以为，路由器拨号后获得了公网IP地址，然后开启虚拟服务器，连接路由器，访问这个WAN口IP地址，成功访问到内网的服务。心想原来也没有那么南嘛，还有点高兴。结果连接外网并不能访问内网服务。 在使用中发现上网设备的公网IP与路由器拨号得到的WAN口IP地址不一样，WAN口IP地址是100.64.*.*，开始到没觉得有什么。在设置DDNS（Dynamic Domain Nam">
+<meta property="og:description" content="0x01 写在开头本教程是开启路由器的端口映射，TP-LINK路由器中称此为虚拟服务器，所以本文以“虚拟服务器”为主。但是本教程错误的，准确来说是不完整的。 错误理解原本以为，路由器拨号后获得了公网IP地址，然后开启路由器的虚拟服务器，访问路由器WAN口IP地址，就可以成功访问到内网的服务。心想原来也没有那么南嘛，还有点高兴。结果发现我能通过WAN口IP地址访问内网，是因为我连自己的路由器。猜测原">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/router/%E4%BF%9D%E7%95%99%E5%9C%B0%E5%9D%80.jpg">
 <meta property="og:image" content="http://yoursite.com/images/router/%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A.png">
 <meta property="og:image" content="http://yoursite.com/images/router/%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B7%BB%E5%8A%A0.jpg">
 <meta property="article:published_time" content="2020-03-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-28T15:02:27.850Z">
+<meta property="article:modified_time" content="2020-03-29T03:41:41.589Z">
 <meta property="article:author" content="小铭同学">
 <meta property="article:tag" content="路由器">
 <meta property="article:tag" content="虚拟服务器">
+<meta property="article:tag" content="端口映射">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/router/%E4%BF%9D%E7%95%99%E5%9C%B0%E5%9D%80.jpg">
 
@@ -51,7 +52,7 @@
   };
 </script>
 
-  <title>路由器进阶使用 | 小铭同学</title>
+  <title>路由器进阶使用之虚拟服务器(端口映射) | 小铭同学</title>
   
 
 
@@ -208,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          路由器进阶使用
+          路由器进阶使用之虚拟服务器(端口映射)
         </h1>
 
         <div class="post-meta">
@@ -217,10 +218,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-28 00:00:00 / 修改时间：23:02:27" itemprop="dateCreated datePublished" datetime="2020-03-28T00:00:00+08:00">2020-03-28</time>
+              <time title="创建时间：2020-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-28T00:00:00+08:00">2020-03-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-29 11:41:41" itemprop="dateModified" datetime="2020-03-29T11:41:41+08:00">2020-03-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -244,7 +251,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.6k</span>
             </span>
 
         </div>
@@ -256,9 +263,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="虚拟服务器"><a href="#虚拟服务器" class="headerlink" title="虚拟服务器"></a>虚拟服务器</h1><p><strong>重大错误理解</strong></p>
-<p>原本以为，路由器拨号后获得了<del>公网IP地址</del>，然后开启虚拟服务器，连接路由器，访问这个WAN口IP地址，成功访问到内网的服务。心想原来也没有那么南嘛，还有点高兴。结果连接外网并不能访问内网服务。</p>
-<p>在使用中发现上网设备的公网IP与路由器拨号得到的WAN口IP地址不一样，WAN口IP地址是100.64.*.*，开始到没觉得有什么。在设置DDNS（Dynamic Domain Name Server，动态域名服务）时才发现不能正常使用，然后才发现WAN口IP不是公网IP。通过查找资料才明白，我们自己的路由器或者电脑拨号连接到了电信运营商的“大路由器”上，而不是公网IP地址，所以不能通过外网访问内网的服务。</p>
+        <h1 id="0x01-写在开头"><a href="#0x01-写在开头" class="headerlink" title="0x01 写在开头"></a>0x01 写在开头</h1><p>本教程是开启路由器的端口映射，TP<em>-</em>LINK路由器中称此为虚拟服务器，所以本文以“虚拟服务器”为主。但是本教程错误的，准确来说是不完整的。</p>
+<h2 id="错误理解"><a href="#错误理解" class="headerlink" title="错误理解"></a>错误理解</h2><p>原本以为，路由器拨号后获得了公网IP地址，然后开启路由器的虚拟服务器，访问路由器WAN口IP地址，就可以成功访问到内网的服务。心想原来也没有那么南嘛，还有点高兴。结果发现我能通过WAN口IP地址访问内网，是因为我连自己的路由器。猜测原理是访问WAN口IP，数据包都没有被转发出去，直接被路由器转发回来了。综上，现在路由器拨号获取的不是公网IP，并不能访问内网服务。失望是不可能失望的，只能安慰一下自己又学到了知识的样子 (┬_┬) 。</p>
+<h2 id="错误发现过程"><a href="#错误发现过程" class="headerlink" title="错误发现过程"></a>错误发现过程</h2><p>在使用中发现上网设备的公网IP与路由器拨号得到的WAN口IP地址不一样，WAN口IP地址是100.64.*.*，开始到没觉得有什么，不知道这是一个保留地址。在设置DDNS（Dynamic Domain Name Server，动态域名服务）时才发现不能凭借域名访问内网，然后才发现WAN口IP不是公网IP。通过查找资料才明白，我们自己的路由器或者电脑拨号连接到了电信运营商的“大路由器”上，而不是公网IP地址，所以不能通过外网访问内网的服务。</p>
+<blockquote>
+<p>耍了个小聪明，瞎尝试了一下。既然是我家是电信的网，连接邻居家的电信宽带和电信流量上网都试了一下，都不能访问，看来是失败了。要使用公网IP的话，应该要向运营商申请，以后有时间，尝试一下。</p>
+</blockquote>
 <p>通过IP查询网站 <a href="https://www.ip138.com/" target="_blank" rel="noopener">https://www.ip138.com/</a> ，查看WAN口IP地址，结果为运营商局域网IP地址。</p>
 <p><img src="/images/router/%E4%BF%9D%E7%95%99%E5%9C%B0%E5%9D%80.jpg" alt="保留地址"></p>
 <a id="more"></a>
@@ -270,11 +280,9 @@
 <p>计算机网络知识没学好，被骗的好惨。参考资料：</p>
 <p><a href="https://blog.csdn.net/achejq/article/details/51943080" target="_blank" rel="noopener">https://blog.csdn.net/achejq/article/details/51943080</a></p>
 <p><a href="https://www.zhihu.com/question/20889036" target="_blank" rel="noopener">https://www.zhihu.com/question/20889036</a></p>
-<p><strong>以下为错误理解的教程</strong></p>
-<p>以前的文章修改后光猫为桥接后，路由器的WAN口IP地址是<del>公网IP地址</del>，而不是光猫分配的内网IP，就可以将自己内网的一些服务发布到公网上去，让连接互联网的用户直接可以访问内部网络的服务。这里使用的是TP<em>-</em>LINK的TL-WDR5620路由器中的虚拟服务器，瞎鼓捣一番。这个公网IP应该是不固定的，如果要进一步使用，应该向运营商申请。</p>
+<h1 id="0x02-不完整教程"><a href="#0x02-不完整教程" class="headerlink" title="0x02 不完整教程"></a>0x02 不完整教程</h1><p><del>前面写的文章讲述了如何修改光猫为桥接，让路由器拨号。路由器拨号后WAN口IP地址是公网IP地址，而不是光猫分配的内网IP，就可以将自己内网的一些服务发布到公网上去，让连接互联网的用户直接可以访问内部网络的服务。这里使用的是TP<em>-</em>LINK的TL-WDR5620路由器中的虚拟服务器，瞎鼓捣一番。这个公网IP应该是不固定的，如果要进一步使用，应该向运营商申请。</del></p>
 <h2 id="开启本机服务"><a href="#开启本机服务" class="headerlink" title="开启本机服务"></a>开启本机服务</h2><p>这里以Hexo的本地服务为例，通过命令<code>hexo server</code>，快速开启一个内网服务。可以通过 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 访问，端口号为4000。</p>
-<h2 id="开启虚拟服务器"><a href="#开启虚拟服务器" class="headerlink" title="开启虚拟服务器"></a>开启虚拟服务器</h2><p>在路由器中的虚拟服务器功能添加一项内容。</p>
-<p>借用TP<em>-</em>LINK官网的图，各个参数的含义</p>
+<h2 id="开启虚拟服务器"><a href="#开启虚拟服务器" class="headerlink" title="开启虚拟服务器"></a>开启虚拟服务器</h2><p>在路由器中的虚拟服务器功能添加一项内容。借用TP<em>-</em>LINK官网的图，各个参数的含义如下：</p>
 <p><img src="/images/router/%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A.png" alt="参数"></p>
 <p>外部端口与Hexo端口设为一样，都是4000，也可以不一样，只是在外网访问的时候，需要填外部端口地址。IP地址为的路由器分配给运行Hexo服务的计算机的IP地址。</p>
 <p><img src="/images/router/%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B7%BB%E5%8A%A0.jpg" alt="参数"></p>
@@ -282,12 +290,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;100.64.*.*:4000</span><br></pre></td></tr></table></figure>
 
 <p>成功访问。</p>
+<h1 id="0x03-最后"><a href="#0x03-最后" class="headerlink" title="0x03 最后"></a>0x03 最后</h1><p>貌似可以通过DDNS内网穿透解决方案来解决内网IP地址问题，参考 <a href="https://hsk.oray.com/news/4326.html" target="_blank" rel="noopener">https://hsk.oray.com/news/4326.html</a></p>
+<p>路由器还有很多高级功能，以后有时间接着更新……</p>
 <h2 id="官网教程参考"><a href="#官网教程参考" class="headerlink" title="官网教程参考"></a>官网教程参考</h2><p>TP<em>-</em>LINK教程参考</p>
 <p>[TL-WDR5600千兆版] 映射服务器到外网</p>
 <p><a href="https://service.tp-link.com.cn/detail_article_3606.html" target="_blank" rel="noopener">https://service.tp-link.com.cn/detail_article_3606.html</a></p>
 <p>设置了虚拟服务器，外网无法访问服务器怎么办？</p>
 <p><a href="https://service.tp-link.com.cn/detail_Article_2578.html" target="_blank" rel="noopener">https://service.tp-link.com.cn/detail_Article_2578.html</a></p>
-<p>以后有时间接着更新……</p>
 
     </div>
 
@@ -299,6 +308,7 @@
           <div class="post-tags">
               <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag"># 路由器</a>
               <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"># 虚拟服务器</a>
+              <a href="/tags/%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84/" rel="tag"># 端口映射</a>
           </div>
 
         
@@ -371,7 +381,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟服务器"><span class="nav-number">1.</span> <span class="nav-text">虚拟服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开启本机服务"><span class="nav-number">1.1.</span> <span class="nav-text">开启本机服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启虚拟服务器"><span class="nav-number">1.2.</span> <span class="nav-text">开启虚拟服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#官网教程参考"><span class="nav-number">1.3.</span> <span class="nav-text">官网教程参考</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-写在开头"><span class="nav-number">1.</span> <span class="nav-text">0x01 写在开头</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#错误理解"><span class="nav-number">1.1.</span> <span class="nav-text">错误理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误发现过程"><span class="nav-number">1.2.</span> <span class="nav-text">错误发现过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-不完整教程"><span class="nav-number">2.</span> <span class="nav-text">0x02 不完整教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开启本机服务"><span class="nav-number">2.1.</span> <span class="nav-text">开启本机服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启虚拟服务器"><span class="nav-number">2.2.</span> <span class="nav-text">开启虚拟服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-最后"><span class="nav-number">3.</span> <span class="nav-text">0x03 最后</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#官网教程参考"><span class="nav-number">3.1.</span> <span class="nav-text">官网教程参考</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -400,7 +410,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
