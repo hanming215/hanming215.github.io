@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo博客搭建之SEO搜索优化</title>
+    <title>Hexo博客搭建之SEO搜索优化</title>
     <url>/posts/a3618c50.html</url>
     <content><![CDATA[<h1 id="增加sitemap（站点地图）"><a href="#增加sitemap（站点地图）" class="headerlink" title="增加sitemap（站点地图）"></a>增加sitemap（站点地图）</h1><p>进入博客根目录，执行下面的命令，安装2个插件。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
