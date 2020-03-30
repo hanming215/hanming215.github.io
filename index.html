@@ -213,7 +213,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-30 15:00:00 / 修改时间：17:10:29" itemprop="dateCreated datePublished" datetime="2020-03-30T15:00:00+08:00">2020-03-30</time>
+              <time title="创建时间：2020-03-30 15:00:00 / 修改时间：17:37:27" itemprop="dateCreated datePublished" datetime="2020-03-30T15:00:00+08:00">2020-03-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -231,7 +231,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>2.1k</span>
             </span>
 
         </div>
@@ -243,13 +243,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="增加sitemap（站点地图）"><a href="#增加sitemap（站点地图）" class="headerlink" title="增加sitemap（站点地图）"></a>增加sitemap（站点地图）</h1><p>进入博客根目录，执行下面的命令，安装2个插件。</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>SEO是（Search Engine Optimization）是搜索引擎优化的英文缩写。大家可以自行学习它的原理及作用。blog小白的我唯一知道的就是当用户根据关键词搜索的时候，搜索到的结果最先看到的是我们的网页，这就是seo要做的事。</p>
+<h1 id="增加sitemap（站点地图）"><a href="#增加sitemap（站点地图）" class="headerlink" title="增加sitemap（站点地图）"></a>增加sitemap（站点地图）</h1><p>进入博客根目录，执行下面的命令，安装2个插件。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
 
 <p>在博客根目录的_config.yml配置文件种添加一下代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 自动生成sitemap</span><br><span class="line">sitemap:</span><br><span class="line">  path: sitemap.xml</span><br><span class="line">baidusitemap:</span><br><span class="line">  path: baidusitemap.xml</span><br></pre></td></tr></table></figure>
 
-<p>一定要修改<code>_config.yml</code>中的默认的URL地址<code>http://yoursite.com</code>，把URL地址修改成你的网站地址。配置完之后执行<code>hexo g</code>就会在你的博客的目录<code>public</code>,生成相对应的<code>sitemap</code>文件。不改的话生成的<code>sitemap.xml</code>和<code>baidusitemap.xml</code>中的内容就会是下面这种，还是默认的URL地址。</p>
+<p>一定要修改<code>_config.yml</code>中的默认的URL地址<code>http://yoursite.com</code>，把URL地址修改成你的网站地址，如<code>https://xxxxxx.github.io/</code>。配置完之后执行<code>hexo g</code>就会在你的博客的目录<code>public</code>,生成相对应的<code>sitemap</code>文件。不改的话生成的<code>sitemap.xml</code>和<code>baidusitemap.xml</code>中的内容就会是下面这种，还是默认的URL地址。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/a3618c50.html#more" rel="contents">
