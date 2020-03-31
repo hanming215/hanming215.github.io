@@ -31,7 +31,7 @@
 
 <p>添加后用<code>hexo d</code>部署，<strong>部署成功后进行验证。</strong></p>
 <p>打开 <a href="https://search.google.com/search-console/" target="_blank" rel="noopener">Google search console</a>，点击左侧的站点地图栏，在添加新的站点地图下面添加，如<code>https://xxx.github.io/sitemap.xml</code>。</p>
-<p>配置完成后就可以在Google搜索自己的关键词和title测试一下咯，如：<code>site:xxx.github.io</code>来检查是否收录成功。</p>
+<p>配置完成后<strong>第二天</strong>就可以在Google搜索自己的关键词和title测试一下咯，如：<code>site:xxx.github.io</code>来检查是否收录成功。</p>
 <h1 id="添加-robots-txt"><a href="#添加-robots-txt" class="headerlink" title="添加 robots.txt"></a>添加 robots.txt</h1><p><code>/source</code>中新建一个<code>robots.txt</code>，这个是<strong>Robots协议</strong>的文件，告诉引擎哪些要收录，哪些禁止收录。内容可以参考一下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: &#x2F;</span><br><span class="line">categories&#x2F;</span><br><span class="line">Allow: &#x2F;tags&#x2F;</span><br><span class="line">Allow: &#x2F;archives&#x2F;</span><br><span class="line"></span><br><span class="line">Disallow: &#x2F;js&#x2F;</span><br><span class="line">Disallow: &#x2F;css&#x2F;</span><br><span class="line">Disallow: &#x2F;fonts&#x2F;</span><br><span class="line"></span><br><span class="line">Sitemap: https:&#x2F;&#x2F;xxxxxx.github.io&#x2F;sitemap.xml</span><br><span class="line">Sitemap: https:&#x2F;&#x2F;xxxxxx.github.io&#x2F;baidusitemap.xml</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
